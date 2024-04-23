@@ -1,0 +1,31 @@
+{% extends "Ticketsales/layout.html" %}
+
+{% block titlepage %} 
+    لیست کنسرت ها
+{% endblock%}
+
+{% block mainContent %}
+    {% if concertlist %}
+
+    <form action="" method="GET">
+        {{ searchForm }}
+
+        <button type="submit" class="btn btn-success">جستجو</button>
+    </form>
+
+        {% for concert in concertlist %}
+           
+            <div class="col-md-2">
+                <a href="/Ticketsales/concert/{{ concert.id }}">
+                    <div class="imageBox">
+                        <img src="{{ Concert.poster.url }}">
+                        {{ concert  }}
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock%}
+               
+           
